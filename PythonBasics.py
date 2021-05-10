@@ -47,9 +47,12 @@ values = "".join(char if char not in separators else " " for char in number).spl
 print([int(val) for val in values])
 
 # replacement field
+name = "Ram"
 age = 24
 print("My age is " + str(age) + " years")
 print("My age is {} years".format(age))
+print(name + f" is {age} years old")             # f is used in older version of python
+
 print("There are {0} days in {1}, {2}, {3}, {4}, {5}, {6} and {7}".format(31, "Jan", "Mar", "May", "Jul", "Aug", "Oct", "Dec"))
 print("""Jan: {2}
 Feb: {0}
@@ -80,6 +83,16 @@ for i in range(1, 13):
 for i in range(1, 13):
     print("No. {0:^2} squared is {1:^3} and cubed is {2:^4}".format(i, i ** 2, i ** 3))
 
-# r:w:p  r is replacement field, w is width of the replacement field, p is precision or number of floating points
+# r:w.f  r is replacement field, w is width of the replacement field, f is precision or number of floating points
+# precision is given priority over field width, thus f value is given greater importance in case of conflict with width
 print("pi is approximately {0:12}".format(22/7))
+print("pi is approximately {0:12f}".format(22/7))
+print("pi is approximately {0:12.50f}".format(22/7))
+print("pi is approximately {0:<52.50f}".format(22/7))
+print("pi is approximately {0:^62.50f}".format(22/7))
+print("pi is approximately {0:<72.50f}".format(22/7))
+
+pi = 22/7
+print(f"Pi is approximately {22/7:12.50f}")          # f-string is used in older version of python
+print(f"pi is approximately {pi:12.50f}")            # f-string is used in older version of python
 
